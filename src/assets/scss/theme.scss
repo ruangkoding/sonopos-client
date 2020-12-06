@@ -1,0 +1,27 @@
+
+$body-bg: #090909;
+
+$sidebar-dark-nav-link-hover-color: #ECF0F1 !default;
+$sidebar-dark-nav-link-hover-bg: #2ecc71 !default;
+$sidebar-dark-nav-link-hover-icon-color: #ECF0F1 !default;
+
+$theme-colors: (
+    success:#2ecc71,
+    info:#2980b9,
+    warning:#f1c40f,
+    danger:#e74c3c,
+    secondary:#bdc3c7
+);
+
+$body-color:#313947;
+
+//$body-bg: #ffffff;
+
+@import "./../../../node_modules/@coreui/coreui/scss/coreui";
+.bg-dark {
+    background-color: #141d26	 !important;
+}
+
+.bg-gray {
+    background-color: #141d26	 !important;
+}
