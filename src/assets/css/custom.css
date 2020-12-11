@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('fonts/SegoeUI.woff');
+}
+
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('fonts/SegoeUI-Bold.woff');
+    font-weight: bold;
+}
+
+
+body {
+    font-family: "Segoe UI", sans-serif !important;
+    line-height: 22px !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+a {
+    color:#192734;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.form-control {
+    height:2rem;
+    font-size:0.75rem;
+}
+
+.btn, .btn-sm {
+    font-size: 0.75rem;
+}
+
+/* .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+} */
+
+/* .mx-datepicker {
+    display: block;
+} */
+
+.brand-link {
+    font-size: 1.15rem !important;
+    line-height: 2 !important;
+}
+
+.dropdown-item {
+    font-size: 0.7rem;
+}
+
+.btn-group-xs > .btn, .btn-xs {
+    padding: .25rem .4rem;
+    line-height: .5;
+    border-radius: .2rem;
+}
+
+.swal-footer {
+    text-align: center;
+}
+
+.c-sidebar .c-sidebar-brand {
+    color: #fff;
+    background: none !important;
+}
+
+table.table-fit {
+    width: auto !important;
+    table-layout: auto !important;
+}
+table.table-fit thead th, table.table-fit tfoot th {
+    width: auto !important;
+}
+table.table-fit tbody td, table.table-fit tfoot td {
+    width: auto !important;
+}
+
+.table-responsive { 
+    display: table;
+}   
+
+.table-noborder th, .table-noborder td {
+    padding: 0.50rem;
+    vertical-align: top;
+}
+
+.summary {
+    margin-top: 10px;
+}
+
+.buttons{
+    float: right;
+}
+
+
+.buttons i.fa {
+    margin-left: .5em;
+}
+
+@media (min-width: 0px) {
+    body{font-size: 16px !important;}
+    .login-box {
+        margin-top: 35% !important;
+    }
+}
+
+@media (min-width: 576px) {
+    body{font-size: 16px !important;}
+}
+
+@media (min-width: 768px) {
+    body{font-size: 12px !important;}
+}
+
+@media (min-width: 992px) {
+    body{font-size: 12px !important; font-weight: 500 !important;}
+}
+
+@media (min-width: 1200px) {
+    body{font-size: 12px !important; font-weight: 500 !important;}
+}
