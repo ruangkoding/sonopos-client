@@ -1,4 +1,5 @@
 # sonopos-client
+<<<<<<< HEAD
 
 ## Project setup
 ```
@@ -22,3 +23,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+>>>>>>> 8b37c0531ab4703a822f2b756baa226083b7c76b
