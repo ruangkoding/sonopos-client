@@ -94,7 +94,6 @@
                       <td>{{ v.stock }}</td>
                     </tr>
                   </table>
-
                   <div class="summary">
                     <span class="buttons">
                       <a
@@ -117,30 +116,10 @@
             <div class="table-responsive" v-else>
               <table class="table table-hover table-striped table-bordered">
                 <thead>
-                  <th
-                    scope="col"
-                    class="text-center"
-                    style="width:40%;">
-                    Nama Barang
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-center"
-                    style="width:15%;">
-                    Cabang Bisnis
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-center"
-                    style="width:15%;">
-                    Stok
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-center"
-                    style="width:20%;">
-                    Tindakan
-                  </th>
+                  <th scope="col" class="text-center" style="width:40%;">Nama Barang</th>
+                  <th scope="col" class="text-center" style="width:15%;">Cabang Bisnis</th>
+                  <th scope="col" class="text-center" style="width:15%;">Stok</th>
+                  <th scope="col" class="text-center" style="width:20%;">Tindakan</th>
                 </thead>
                 <tbody>
                   <tr v-for="v in items" :key="v.id">
@@ -243,7 +222,11 @@
                     </div>
                     <div class="row">
                       <div class="form-group col-12">
-                        <button :class="{ 'btn-block': mobile === true }" class="btn btn-success mr-2" type="submit" disabled v-if="isRequesting">
+                        <button 
+                          :class="{ 'btn-block': mobile === true }" 
+                          class="btn btn-success mr-2" 
+                          type="submit" 
+                          disabled v-if="isRequesting">
                           <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                           <span class="sr-only">Loading...</span>
                         </button>
@@ -502,14 +485,14 @@ export default {
     },
     fetchData() {
       let query = this.generateParams()
+      this.showTable = false
       service
         .fetchData(
           this.$apiUrl +
-            '/item?' +
-            query +
-            '&page=' +
-            this.pagination.page,
-        )
+          '/item?' +
+          query +
+          '&page=' +
+          this.pagination.page)
         .then((response) => {
           if (response.total === 0) {
             this.showTable = false
@@ -579,7 +562,6 @@ export default {
       this.isRequesting = true
       let validate = this.validateCreate()
       if (validate === true) {
-        this.isLoading = true
         service
           .postData(this.$apiUrl + '/item', this.payload)
           .then((result) => {

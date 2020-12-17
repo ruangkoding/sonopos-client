@@ -16,10 +16,7 @@ export default new Vuex.Store({
     },
     isAdmin: (state) => {
       return state.role !== 'null' && state.role === 'admin'
-    },
-    userId: (state) => {
-      return state.userid !== 'null'
-    },
+    }
   },
   mutations: {
     SET_TOKEN(state, payload) {

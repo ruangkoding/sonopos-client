@@ -4,11 +4,11 @@
       <img
         class="c-sidebar-brand-minimized"
         :src='baseDir + "img/logo-mini.png"'
-        height="46" />
+        height="42" />
       <img
         class="c-sidebar-brand-full"
         :src='baseDir + "img/logo-h.png"'
-        height="46" />
+        height="42" />
     </div>
     <ul class="c-sidebar-nav ps ps--active-y">
       <li class="c-sidebar-nav-item">

@@ -21,8 +21,7 @@
             <div
               class="card"
               style="margin-top:50px;"
-              v-show="showForm"
-            >
+              v-show="showForm">
               <div class="card-body table-responsive">
                 <form v-on:submit.prevent="fetchData()">
                   <div class="row">
@@ -31,8 +30,20 @@
                         type="text"
                         class="form-control"
                         v-model="search.q"
-                        placeholder="Nama Pengguna"
-                      />
+                        placeholder="Nama Pengguna" />
+                    </div>
+                    <div class="form-group col-md-4">
+                      <select
+                        v-model="search.category"
+                        class="form-control">
+                        <option value="">Pilih Cabang Bisnis</option>
+                        <option
+                          v-for="v in this.category"
+                          :value="v.id"
+                          :key="v.id">
+                          {{ v.category_name }}
+                        </option>
+                      </select>
                     </div>
                   </div>
                   <div class="row">
@@ -40,16 +51,14 @@
                       <button
                         type="submit"
                         :class="{ 'btn-block': mobile === true }"
-                        class="btn btn-success mr-sm-2"
-                      >
+                        class="btn btn-success mr-sm-2">
                         <i class="fa fa-search"></i> Cari Data
                       </button>
                       <button
                         type="button"
                         :class="{ 'btn-block': mobile === true }"
                         v-on:click.prevent="clear"
-                        class="btn btn-info"
-                      >
+                        class="btn btn-info">
                         <i class="fa fa-refresh"></i> Reset
                       </button>
                     </div>
@@ -82,12 +91,12 @@
                     <tr>
                       <td>Jabatan</td>
                       <td>:</td>
-                      <td>{{ v.level }}</td>
+                      <td>{{ (v.level === 1) ? 'Administrator' : 'Operator' }}</td>
                     </tr>
                     <tr>
                       <td>Status</td>
                       <td>:</td>
-                      <td>{{ v.active }}</td>
+                      <td>{{ (v.active === 1) ? 'Aktif' : 'Non Aktif' }}</td>
                     </tr>
                   </table>
                   <div class="summary">
@@ -113,44 +122,44 @@
               <table class="table table-hover table-striped table-bordered">
                 <thead>
                   <tr>
-                  <th
-                    scope="col"
-                    class="text-center"
-                    style="width:20%;">
-                    Username
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-center"
-                    style="width:20%;">
-                    Cabang Bisnis
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-center"
-                    style="width:20%;">
-                    Jabatan
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-center"
-                    style="width:20%;">
-                    Status
-                  </th>
-                  <th
-                    scope="col"
-                    class="text-center"
-                    style="width:20%;">
-                    Tindakan
-                  </th>
-                </tr>
+                    <th
+                      scope="col"
+                      class="text-center"
+                      style="width:20%;">
+                      Username
+                    </th>
+                    <th
+                      scope="col"
+                      class="text-center"
+                      style="width:20%;">
+                      Cabang Bisnis
+                    </th>
+                    <th
+                      scope="col"
+                      class="text-center"
+                      style="width:20%;">
+                      Jabatan
+                    </th>
+                    <th
+                      scope="col"
+                      class="text-center"
+                      style="width:20%;">
+                      Status
+                    </th>
+                    <th
+                      scope="col"
+                      class="text-center"
+                      style="width:20%;">
+                      Tindakan
+                    </th>
+                  </tr>
                 </thead>
                 <tbody>
                   <tr v-for="v in users" :key="v.id">
                     <th scope="row">{{ v.username }}</th>
                     <td>{{ v.category.category_name }}</td>
-                    <td class="text-center">{{ v.level }}</td>
-                    <td class="text-center">{{ v.active }}</td>
+                    <td class="text-center">{{ (v.level === 1) ? 'Administrator' : 'Operator' }}</td>
+                    <td class="text-center">{{ (v.active === 1) ? 'Aktif' : 'Non Aktif' }}</td>
                     <td>
                       <div style="text-align: center;">
                         <a
@@ -370,6 +379,7 @@ export default {
       isLoading: false,
       search: {
         q: '',
+        category:''
       },
       pagination: {
         page: 1,
@@ -422,7 +432,6 @@ export default {
     toggleUpdateModal(id) {
       $('#update_modal').modal('show')
       this.id = id
-      this.getCategory()
       this.getData(id)
     },
     generateParams() {
@@ -648,6 +657,7 @@ export default {
   },
   mounted() {
     this.fetchData()
+    this.getCategory()
   },
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <footer class="c-footer bg-dark">
-    <span class="text-light" style="margin-left: 10%;" v-if="isMobile">
+    <span class="text-light" style="margin-left: 10%;" v-if="mobile">
       <strong>PT Sosro Retno Copyright &copy; 2020</strong>
     </span>
     <span class="text-light" v-else>
